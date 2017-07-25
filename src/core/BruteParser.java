@@ -74,7 +74,7 @@ public class BruteParser {
 		Pattern pattern = Pattern.compile("\\w+\\.\\w+");
 		Matcher matcher = pattern.matcher(line);			
 		if (matcher.find() && !variaveisUpperCase.contains(matcher.group(0).split("\\.")[0].toUpperCase())){
-			dependencias.add(s[s.length - 1]+"."+path.getFileName() + ",access," + matcher.group(0));
+			dependencias.add(s[s.length - 1]+"."+path.getFileName().toString().replaceFirst("[.][^.]+$", "") + ",access," + matcher.group(0));
 		}
 		
 	} 
